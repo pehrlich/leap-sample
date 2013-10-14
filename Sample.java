@@ -1,7 +1,3 @@
-package leap;
-
-//import java.lang.System;
-
 import java.io.IOException;
 
 import com.leapmotion.leap.Controller;
@@ -21,7 +17,7 @@ import com.leapmotion.leap.Vector;
 * This software is subject to copyright.                                       *
 \******************************************************************************/
 
-class LeapListener extends Listener {
+class SampleListener extends Listener {
   public void onInit(Controller controller) {
     System.out.println("Initialized");
   }
@@ -66,6 +62,7 @@ class LeapListener extends Listener {
       }
 
       // Check if the hand has a palm
+//      Ray palmRay = hand.palm();
       if (hand.isValid()) {
         // Get the palm position and wrist direction
         Vector palm = hand.palmPosition();
@@ -82,10 +79,10 @@ class LeapListener extends Listener {
   }
 }
 
-class Leap {
+class Sample {
   public static void main(String[] args) {
     // Create a sample listener and assign it to a controller to receive events
-    LeapListener listener = new LeapListener();
+    SampleListener listener = new SampleListener();
     Controller controller = new Controller(listener);
 
     // Keep this process running until Enter is pressed
@@ -97,6 +94,6 @@ class Leap {
 	}
 
     //The controller must be disposed of before the listener
-//    controller = null;
+    controller = null;
   }
 }
